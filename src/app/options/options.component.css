@@ -1,0 +1,14 @@
+.background-opt{
+    background-image: url('../../assets/fondo1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 500px;
+}
+
+.options{
+    background: black;
+    opacity: 0.8;
+    padding: 2%;
+    color: white;
+}

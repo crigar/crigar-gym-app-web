@@ -1,0 +1,14 @@
+.background{
+    background-image: url('../../assets/fondo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 500px;
+}
+
+.login{
+    background: black;
+    opacity: 0.8;
+    padding: 2%;
+    color: white;
+}

@@ -1,0 +1,22 @@
+<div class="background-opt" align="center">
+  
+  <div class="col-md-8 col-xs-12 options"  >
+    <ngb-tabset type="pills">
+      <ngb-tab title="Agregar Cliente">
+        <ng-template ngbTabContent>
+          <app-user-form [type]="client" ></app-user-form>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Agregar Ciudad y Sede">
+        <ng-template ngbTabContent>
+          <app-entity></app-entity>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Consultar">
+        <ng-template ngbTabContent>
+          <app-search></app-search>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div align="center">
+  <div class="col-md-6 col-xs-12">
+    <form #f="ngForm" [formGroup]="data" (ngSubmit)="search()">
+      <div class="col-md-12 col-xs-12">
+        <h1 >Buscar usuarios por sede</h1>
+      </div>
+      <label >Sede</label>
+      <div class="form-group">
+        <label >Ciudades</label>
+        <select class="form-control" formControlName="city" name="" id="" (change)="changeCity($event.target.value)">
+          <option *ngFor="let city of cities"  [value]="city.id">{{city.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label >Sedes</label>
+        <select class="form-control" formControlName="sede" name="" id="">
+          <option *ngFor="let sede of sedes"  [value]="sede.id">{{sede.name}}</option>
+        </select>
+      </div>
+      <ngb-alert *ngIf="response.show" type="{{response.type}}" (close)="true">{{response.message}}</ngb-alert>
+      <button  type="submit" class="btn btn-primary" [disabled]="!data.valid">Buscar</button>
+    </form>
+  </div>
+  <div class="col-md-12 col-xs-12 " >
+    <table class="table table-striped table-responsive-sm clientes-table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nit</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Telefono</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let client of clients; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ client.name }}</td>
+        <td>{{ client.username }}</td>
+        <td>{{ client.document }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.phone }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

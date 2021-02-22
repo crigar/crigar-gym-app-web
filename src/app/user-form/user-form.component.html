@@ -1,0 +1,46 @@
+<div align="center">
+  <div class="col-md-8 col-xs-12 style-color" >
+    <form #f="ngForm" [formGroup]="data" (ngSubmit)="send()">
+      <div *ngIf="type != 'user'" class="col-md-12 col-xs-12">
+        <h1 >Datos Basicos de cliente</h1>
+      </div>
+      <div class="form-group" *ngIf="user == undefined">
+        <label >Nombre de Usuario</label>
+        <input type="text" formControlName="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
+        <control-messages [control]="data.controls.username"></control-messages>
+      </div>
+      <div class="form-group" *ngIf="user == undefined">
+        <label >Contraseña</label>
+        <input type="password" formControlName="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <control-messages [control]="data.controls.pass"></control-messages>
+      </div>
+      <div class="form-group" *ngIf="user == undefined">
+        <label >Repirta Contraseña </label>
+        <input type="password" formControlName="passAgain" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <control-messages [control]="data.controls.passAgain"></control-messages>
+      </div>
+      <div class="form-group">
+        <label >Correo</label>
+        <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1" placeholder="Correo">
+        <control-messages [control]="data.controls.email"></control-messages>
+      </div>
+      <div class="form-group">
+        <label >Documento</label>
+        <input type="number" formControlName="document" class="form-control" id="exampleInputPassword1" placeholder="Documento">
+      </div>
+      <div class="form-group">
+        <label >Nombre</label>
+        <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1" placeholder="Nombre y apellido">
+      </div>
+      <div class="form-group">
+        <label >Telefono</label>
+        <input type="text" formControlName="phone" class="form-control" id="exampleInputPassword1" placeholder="Telefono o celular">
+      </div>
+      
+      <ngb-alert *ngIf="!data.valid" type="danger" (close)="true">Por favor llene todos los campos antes de agregar el cliente</ngb-alert>
+      <ngb-alert *ngIf="response.show" type="{{response.type}}" (close)="true">{{response.message}}</ngb-alert>
+      <button  type="submit" class="btn btn-primary" [disabled]="!data.valid">{{ type == 'user' ? 'Enviar': 'Agregar Cliente' }}</button>
+    </form>
+  </div>
+  
+</div>

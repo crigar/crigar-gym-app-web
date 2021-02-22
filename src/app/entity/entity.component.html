@@ -1,0 +1,62 @@
+<div align="center">
+    <div class="col-md-8 col-xs-12">
+      <form #f="ngForm" [formGroup]="city" (ngSubmit)="newCity()">
+        <div  class="col-md-12 col-xs-12">
+            <h1>Crear Ciudad</h1>
+        </div>
+        <div class="form-group">
+          <label >Nombre</label>
+          <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1" placeholder="Nombre de la compañia">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!city.valid">Agregar Ciudad</button>
+      </form>
+    </div>
+    <ngb-alert *ngIf="response.show" type="{{response.type}}" (close)="true">{{response.message}}</ngb-alert>
+    <form #f="ngForm" [formGroup]="sede" (ngSubmit)="newSede()">
+      <div  class="col-md-12 col-xs-12">
+          <h1>Crear Sede</h1>
+      </div>
+      <div class="form-group">
+        <label >Nombre</label>
+        <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1" placeholder="Nombre de la sede">
+      </div>
+      <div class="form-group">
+        <label >Direccion</label>
+        <input type="text" formControlName="address" class="form-control" id="exampleInputPassword1" placeholder="direccion de la sede">
+      </div>
+      <div class="form-group">
+        <label >Ciudades</label>
+        <select class="form-control" formControlName="city" name="" id="">
+          <option *ngFor="let city of cities"  [value]="city.id">{{city.name}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!sede.valid">Agregar Sede</button>
+    </form> 
+
+    <form #f="ngForm" [formGroup]="client" (ngSubmit)="agregarCliente()">
+      <div  class="col-md-12 col-xs-12">
+          <h1>Asignar cliente a Sede</h1>
+      </div>
+      <div class="form-group">
+        <label >Cliente</label>
+        <select class="form-control" formControlName="client" name="" id="">
+          <option *ngFor="let client of clients"  [value]="client.id">{{client.document}} - {{client.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label >Ciudad</label>
+        <select class="form-control" formControlName="city" name="" id="" (change)="changeCity($event.target.value)">
+          <option *ngFor="let city of cities"  [value]="city.id">{{city.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label >Sede</label>
+        <select class="form-control" formControlName="sede" name="" id="">
+          <option *ngFor="let sede of sedes"  [value]="sede.id">{{sede.name}} </option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!client.valid">Agregar Cliente</button>
+    </form> 
+    
+    
+  </div>
